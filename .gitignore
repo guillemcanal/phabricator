@@ -34,3 +34,6 @@
 
 # NPM local packages
 /support/aphlict/server/node_modules/
+
+# Crappy IDE metadata
+/.idea
