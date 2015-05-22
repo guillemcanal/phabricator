@@ -477,7 +477,7 @@ final class PhabricatorMarkupEngine {
 
     $rules[] = new PhutilRemarkupDocumentLinkRule();
     $rules[] = new PhabricatorNavigationRemarkupRule();
-    $rules[] = new PhabricatorGifphyRemarkupRule();
+    $rules[] = new PhabricatorGiphyRemarkupRule();
 
     if ($options['youtube']) {
       $rules[] = new PhabricatorYoutubeRemarkupRule();

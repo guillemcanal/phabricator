@@ -1,6 +1,6 @@
 <?php
 
-class PhabricatorGifphyRemarkupRule extends PhutilRemarkupRule {
+final class PhabricatorGiphyRemarkupRule extends PhutilRemarkupRule {
 
     const PUBLIC_API_KEY = "dc6zaTOxFJmzC";
 
@@ -20,6 +20,13 @@ class PhabricatorGifphyRemarkupRule extends PhutilRemarkupRule {
     }
 
     public function getGif(array $matches) {
+
+        $text_mode = $this->getEngine()->isTextMode();
+        $mail_mode = $this->getEngine()->isHTMLMailMode();
+
+        if ($text_mode || $mail_mode) {
+            return $matches[0];
+        }
 
         $params = http_build_query(array(
             'api_key' => self::PUBLIC_API_KEY,
